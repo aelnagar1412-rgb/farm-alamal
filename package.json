@@ -1,9 +1,8 @@
 {
   "name": "farm-alamal",
   "version": "1.0.0",
-  "description": "نظام إدارة مزرعة الأمل للمواشي",
+  "private": true,
   "main": "main.js",
-  "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -21,19 +20,19 @@
   "devDependencies": {
     "electron": "^28.2.0",
     "electron-builder": "^24.13.3",
-    "vite": "^6.4.1",
-    "typescript": "^5.3.3"
+    "vite": "^5.0.0",
+    "typescript": "^5.3.3",
+    "@vitejs/plugin-react": "^4.2.1"
   },
   "build": {
     "appId": "com.farm.alamal",
-    "productName": "Farm Al Amal",
+    "productName": "Farm Al-Amal",
     "directories": {
-      "output": "dist"
+      "output": "release"
     },
     "files": [
       "dist/**/*",
       "main.js",
-      "preload.js",
       "package.json"
     ],
     "win": {
