@@ -1,26 +1,43 @@
 {
   "name": "farm-alamal",
   "version": "1.0.0",
-  "main": "electron/main.js",
+  "description": "نظام إدارة مزرعة الأمل للمواشي",
+  "main": "main.js",
   "type": "commonjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "electron": "electron .",
+    "preview": "vite preview",
+    "electron": "npx electron .",
     "dist": "npm run build && electron-builder"
+  },
+  "dependencies": {
+    "@google/genai": "^1.35.0",
+    "better-sqlite3": "^12.6.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.12.0"
   },
   "devDependencies": {
     "electron": "^28.2.0",
-    "electron-builder": "^24.9.1"
+    "electron-builder": "^24.13.3",
+    "vite": "^6.4.1",
+    "typescript": "^5.3.3"
   },
   "build": {
     "appId": "com.farm.alamal",
     "productName": "Farm Al Amal",
     "directories": {
-      "output": "release"
+      "output": "dist"
     },
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
     "win": {
-      "target": "nsis",
+      "target": "nsis"
     }
   }
 }
