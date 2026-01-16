@@ -7,23 +7,24 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    env:
+      CI: false   # دي أهم سطر
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      - name: Install dependencies
+      - name: Install
         run: npm install
 
       - name: Build EXE (no publish)
         run: npm run dist -- --publish=never
 
-      - name: Upload EXE Artifact
+      - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
           name: Farm-Al-Amal-EXE
