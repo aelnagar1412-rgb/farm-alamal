@@ -1,8 +1,8 @@
 {
   "name": "farm-alamal",
   "version": "1.0.0",
-  "main": "main.js",
-  "type": "commonjs",
+  "private": true,
+  "main": "electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -16,14 +16,17 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-router-dom": "^7.12.0",
-    "recharts": "^3.6.0"
+    "recharts": "^3.6.0",
+    "jspdf": "^2.5.1"
   },
   "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "@vitejs/plugin-react": "^4.2.1",
-    "electron": "^28.2.0",
+    "electron": "^30.0.0",
     "electron-builder": "^24.13.3",
-    "vite": "^5.4.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vite": "^5.4.21"
   },
   "build": {
     "appId": "com.farm.alamal",
@@ -33,11 +36,11 @@
     },
     "files": [
       "dist/**/*",
-      "main.js",
-      "package.json"
+      "electron/**/*"
     ],
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "icon": "public/icon.ico"
     }
   }
 }
