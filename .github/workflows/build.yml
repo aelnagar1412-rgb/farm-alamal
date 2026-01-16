@@ -9,22 +9,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
-      - name: Install
+      - name: Install dependencies
         run: npm install
 
-      - name: Build EXE (ignore publish error)
+      - name: Build app
         run: npm run dist -- --publish=never
-        continue-on-error: true   # السطر السحري
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
         with:
-          name: Farm-Al-Amal-EXE
+          name: Farm-Al-Amal-Setup
           path: dist/*.exe
